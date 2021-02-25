@@ -38,8 +38,13 @@ def image():
 
 
 @app.route('/promotion_image')
-def first():
+def promotion_image():
     return render_template('promotion_image.html')
+
+
+@app.route('/astronaut_selection')
+def astronaut_selection():
+    return render_template('astronaut_selection.html')
 
 
 if __name__ == '__main__':
