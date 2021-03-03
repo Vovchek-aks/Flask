@@ -3,16 +3,6 @@ from flask import Flask, url_for, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
-def main():
-    return "Миссия Колонизация Марса"
-
-
-@app.route('/index')
-def index():
-    return "И на Марсе будут яблони цвести!"
-
-
 @app.route('/promotion')
 def reklama():
     return 'Человечество вырастает из детства.<br/>' \
@@ -47,7 +37,13 @@ def astronaut_selection():
     return render_template('astronaut_selection.html')
 
 
+@app.route('//<title>')
+@app.route('/index/<title>')
+def base(title):
+    return render_template('base.html', title=title)
+
+
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
+    app.run(port=8080, host='127.0.0.1', debug=True)
 
 
