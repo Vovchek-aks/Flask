@@ -44,12 +44,12 @@ def base(title):
 
 
 @app.route('/choice/<planet>')
-def training(planet):
-    return render_template('training.html', planet=planet)
+def choice(planet):
+    return render_template('choice.html', planet=planet)
 
 
 @app.route('/training/<prof>')
-def choice(prof):
+def training(prof):
     prof = prof.lower()
     if 'инженер' in prof or 'строитель' in prof:
         name = 'Инженерные тренажеры'
