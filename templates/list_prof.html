@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+{% if ul_ol == 'ul' %}
+    <ul>
+    {% for i in profs %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+ {% else %}
+    <ol>
+    {% for i in profs %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ol>
+ {% endif %}
+
+
+{% endblock %}

@@ -61,6 +61,18 @@ def choice(prof):
                            image=url_for('static', filename=f'img/{im}'))
 
 
+@app.route('/list_prof/<ul_ol>')
+def profs(ul_ol):
+    return render_template('list_prof.html', title='Пруфы))', ul_ol=ul_ol,
+                           profs=[
+                            'Рабочий',
+                            'Крестьянка',
+                            'Военнослужащий',
+                            'Партийный деятель',
+                            'Член верховно совета народный комисаров ЦК ВКП(б)'
+                           ])
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1', debug=True)
 
