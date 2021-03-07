@@ -37,10 +37,15 @@ def astronaut_selection():
     return render_template('astronaut_selection.html')
 
 
-@app.route('//<title>')
+@app.route('/<title>')
 @app.route('/index/<title>')
 def base(title):
     return render_template('base.html', title=title)
+
+
+@app.route('/choice/<planet>')
+def choice(planet):
+    return render_template('choice.html', planet=planet)
 
 
 if __name__ == '__main__':
