@@ -44,8 +44,21 @@ def base(title):
 
 
 @app.route('/choice/<planet>')
-def choice(planet):
-    return render_template('choice.html', planet=planet)
+def training(planet):
+    return render_template('training.html', planet=planet)
+
+
+@app.route('/training/<prof>')
+def choice(prof):
+    prof = prof.lower()
+    if 'инженер' in prof or 'строитель' in prof:
+        name = 'Инженерные тренажеры'
+        im = 'Инжир.png'
+    else:
+        name = 'Научные симуляторы'
+        im = 'химбио.png'
+    return render_template('training.html', title='Ракета', name=name,
+                           image=url_for('static', filename=f'img/{im}'))
 
 
 if __name__ == '__main__':
