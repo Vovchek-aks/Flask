@@ -1,4 +1,10 @@
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, request, render_template, redirect
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
+from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired, Email
+from data import db_session
+from data.users import User
 
 app = Flask(__name__)
 
@@ -74,6 +80,33 @@ def profs(ul_ol):
 
 
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1', debug=True)
+    db_session.global_init("db/blogs.db")
+
+    # добавление в таблицу
+    user = User()
+    user.name = 'Пользователь 3'
+    user.about = 'Не любит'
+    user.email = 'dontlike@ya.ru'
+    db_sess = db_session.create_session()
+    db_sess.add(user)
+    db_sess.commit()
+
+    # выборка
+    # db_sess = db_session.create_session()
+    # users = db_sess.query(User).filter(User.id > 1).all()
+    # print(users)
+
+    # изменение
+    # db_sess = db_session.create_session()
+    # user = db_sess.query(User).filter(User.id == 1).first()
+    # user.name = 'Суперпользователь 1'
+    # db_sess.commit()
+    # db_sess = db_session.create_session()
+    # news = News(title="Первая новость", content="Привет блог!",
+    #             user_id=1, is_private=False)
+    # db_sess.add(news)
+    # db_sess.commit()
+
+    app.run(debug=True)
 
 
