@@ -86,9 +86,10 @@ if __name__ == '__main__':
     user = User()
     user.name = 'Пользователь 3'
     user.about = 'Не любит'
-    user.email = 'dontlike@ya.ru'
+    user.email = 'dontrfwflergrgik.ru'
     db_sess = db_session.create_session()
     db_sess.add(user)
+    print(1)
     db_sess.commit()
 
     # выборка
@@ -107,6 +108,6 @@ if __name__ == '__main__':
     # db_sess.add(news)
     # db_sess.commit()
 
-    app.run(debug=True)
+    # app.run(debug=True)
 
 
